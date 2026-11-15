@@ -58,7 +58,7 @@ openButton.addEventListener("click", () => {
 
 });
 
-// TOMBOL MUSIK
+// TOMBOL MUSIK MANUAL
 musicButton.addEventListener("click", async () => {
 
   if (music.paused) {
@@ -71,7 +71,7 @@ musicButton.addEventListener("click", async () => {
 
     } catch (error) {
 
-      alert("Musik tidak dapat diputar. Periksa file lagu.mp3");
+      alert("Musik tidak dapat diputar. Periksa file music.mp3");
 
     }
 
