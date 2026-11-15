@@ -202,6 +202,7 @@ body {
   padding: 12px 18px;
   border-radius: 30px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 /* GALERI FOTO */
@@ -286,18 +287,29 @@ body {
   100% { opacity: 1; }
 }
 
-/* EMOJI JATUH */
+/* HUJAN EMOJI TERUS-MENERUS */
 
 .falling {
   position: fixed;
   top: -50px;
   z-index: 999;
   pointer-events: none;
+  user-select: none;
   animation: fall linear forwards;
+  will-change: transform, opacity;
 }
 
 @keyframes fall {
-  to {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
     transform: translateY(110vh) rotate(540deg);
     opacity: 0;
   }
