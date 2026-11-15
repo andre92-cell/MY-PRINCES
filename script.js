@@ -6,15 +6,21 @@ const mainContent = document.getElementById("mainContent");
 const music = document.getElementById("backgroundMusic");
 const musicButton = document.getElementById("musicButton");
 
-// EMOJI MUSIK JATUH
+// ==================================
+// HUJAN EMOJI LOVE & MUSIK
+// ==================================
+
+let emojiRainInterval = null;
+
 function fallingEmojis() {
 
   const emojis = [
     "🎵", "🎶", "💗", "💕",
-    "✨", "💖", "♫", "🌸"
+    "✨", "💖", "♫", "🌸",
+    "❤️", "💞", "💓", "💘"
   ];
 
-  for (let i = 0; i < 45; i++) {
+  function createEmoji() {
 
     const emoji = document.createElement("span");
 
@@ -29,10 +35,7 @@ function fallingEmojis() {
       (18 + Math.random() * 22) + "px";
 
     emoji.style.animationDuration =
-      (3 + Math.random() * 4) + "s";
-
-    emoji.style.animationDelay =
-      Math.random() * 1.5 + "s";
+      (4 + Math.random() * 4) + "s";
 
     document.body.appendChild(emoji);
 
@@ -40,15 +43,24 @@ function fallingEmojis() {
       emoji.remove();
     }, 8500);
   }
+
+  // Emoji turun terus setiap 250 milidetik
+  if (!emojiRainInterval) {
+    emojiRainInterval = setInterval(createEmoji, 250);
+  }
 }
 
+// ==================================
 // BUKA SURAT
+// ==================================
+
 openButton.addEventListener("click", () => {
 
   opening.style.display = "none";
 
   mainContent.classList.remove("hidden");
 
+  // Mulai hujan emoji
   fallingEmojis();
 
   window.scrollTo({
@@ -58,7 +70,10 @@ openButton.addEventListener("click", () => {
 
 });
 
+// ==================================
 // TOMBOL MUSIK MANUAL
+// ==================================
+
 musicButton.addEventListener("click", async () => {
 
   if (music.paused) {
@@ -83,4 +98,12 @@ musicButton.addEventListener("click", async () => {
 
   }
 
+});
+
+// ==================================
+// UPDATE TOMBOL JIKA MUSIK BERUBAH
+// ==================================
+
+music.addEventListener("ended", () => {
+  musicButton.textContent = "▶";
 });
