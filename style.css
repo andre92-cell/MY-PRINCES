@@ -365,3 +365,28 @@ footer {
     font-size: 25px;
   }
 }
+
+/* RAPIN KATA-KATA DI HP */
+.letter p {
+  text-align: left;
+  line-height: 1.9;
+  word-break: normal;
+  overflow-wrap: break-word;
+  white-space: normal;
+  margin-bottom: 18px;
+}
+
+.letter {
+  padding: 30px 25px;
+}
+
+@media (max-width: 600px) {
+  .letter {
+    padding: 25px 20px;
+  }
+
+  .letter p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
